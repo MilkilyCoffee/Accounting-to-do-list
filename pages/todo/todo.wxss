@@ -1,0 +1,222 @@
+.todo-bg {
+  min-height: 100vh;
+  background: #f6f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-card {
+  width: 92vw;
+  max-width: 600rpx;
+  background: #fff;
+  border-radius: 18rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0,0,0,0.08);
+  padding: 48rpx 32rpx 40rpx 32rpx;
+  margin: 60rpx 0;
+}
+.todo-input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+  gap: 12rpx;
+}
+.todo-input {
+  flex: 1;
+  font-size: 30rpx;
+  padding: 18rpx 20rpx;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+  background: #f8f9fa;
+}
+.todo-date-picker,
+.todo-time-picker,
+.todo-days-input {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 28rpx;
+  color: #666;
+  background: #f8f9fa;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+  padding: 18rpx 10rpx;
+  text-align: center;
+}
+.todo-days-input {
+  padding: 18rpx 10rpx;
+}
+.todo-add-btn {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 10rpx;
+  background: linear-gradient(90deg, #07c160 60%, #4cd964 100%);
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  padding: 0 36rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-weight: bold;
+  border: none;
+}
+.todo-list {
+  margin-top: 10rpx;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 22rpx 18rpx;
+  margin-bottom: 18rpx;
+  box-shadow: 0 2rpx 8rpx rgba(7,193,96,0.04);
+}
+.todo-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.todo-checkbox {
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 50%;
+  border: 2rpx solid #07c160;
+  color: #fff;
+  background: #fff;
+  margin-right: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.todo-checkbox.checked {
+  background: #07c160;
+  color: #fff;
+}
+.todo-text {
+  font-size: 30rpx;
+  color: #333;
+  transition: color 0.2s;
+}
+.todo-text.done {
+  color: #bbb;
+  text-decoration: line-through;
+}
+.todo-actions {
+  display: flex;
+  gap: 18rpx;
+  margin-left: 18rpx;
+}
+.todo-edit {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.08);
+  border-radius: 8rpx;
+  padding: 4rpx 18rpx;
+  font-size: 26rpx;
+}
+.todo-delete {
+  color: #ff4d4f;
+  background: rgba(255, 77, 79, 0.08);
+  border-radius: 8rpx;
+  padding: 4rpx 18rpx;
+  font-size: 26rpx;
+}
+.todo-empty {
+  text-align: center;
+  color: #bbb;
+  padding: 80rpx 0 0 0;
+  font-size: 30rpx;
+}
+.todo-info {
+  display: flex;
+  flex-direction: column;
+}
+.todo-meta {
+  display: flex;
+  gap: 18rpx;
+  margin-top: 6rpx;
+}
+.todo-date {
+  font-size: 24rpx;
+  color: #999;
+}
+.todo-days {
+  font-size: 24rpx;
+  color: #07c160;
+}
+.todo-time {
+  font-size: 24rpx;
+  color: #1890ff;
+  margin-left: 10rpx;
+}
+.search-bar-bg {
+  width: 100vw;
+  background: #377dff;
+  padding: 0 0 32rpx 0;
+}
+.search-bar {
+  width: 92vw;
+  max-width: 600rpx;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(55,125,255,0.08);
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  height: 64rpx;
+  position: relative;
+  top: 24rpx;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 28rpx;
+  background: transparent;
+  color: #333;
+  height: 64rpx;
+}
+.search-icon {
+  font-size: 32rpx;
+  color: #377dff;
+  margin-left: 10rpx;
+}
+.record-date-group {
+  display: flex;
+  align-items: center;
+  background: #f3f6fa;
+  border-radius: 10rpx;
+  padding: 12rpx 24rpx;
+  margin: 24rpx 0 8rpx 0;
+  font-size: 26rpx;
+  color: #377dff;
+  font-weight: 500;
+  gap: 32rpx;
+}
+.group-date {
+  font-size: 28rpx;
+  color: #377dff;
+  font-weight: bold;
+}
+.todo-done-btn {
+  color: #fff;
+  background: linear-gradient(90deg, #07c160 60%, #4cd964 100%);
+  border-radius: 8rpx;
+  padding: 4rpx 18rpx;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  font-weight: bold;
+  box-shadow: 0 2rpx 8rpx rgba(7,193,96,0.08);
+}
+.todo-done-label {
+  color: #07c160;
+  background: #e6f7e6;
+  border-radius: 8rpx;
+  padding: 4rpx 18rpx;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  font-weight: bold;
+} 

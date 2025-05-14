@@ -1,0 +1,34 @@
+<view class="add-bg">
+  <view class="add-card">
+    <form bindsubmit="formSubmit">
+      <view class="form-group">
+        <view class="form-item">
+          <text class="form-label">类型</text>
+          <radio-group name="type" class="type-group" bindchange="typeChange">
+            <label class="type-radio {{type === 'income' ? 'checked' : ''}}">
+              <radio value="income" checked="{{type === 'income'}}" />收入
+            </label>
+            <label class="type-radio {{type === 'expense' ? 'checked' : ''}}">
+              <radio value="expense" checked="{{type === 'expense'}}" />支出
+            </label>
+          </radio-group>
+        </view>
+        <view class="form-item">
+          <text class="form-label">日期</text>
+          <picker mode="date" value="{{dateOnly}}" bindchange="dateChange">
+            <view class="date-picker">{{dateOnly || '请选择日期'}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <text class="form-label">金额</text>
+          <input class="input-box" type="digit" name="amount" placeholder="请输入金额" value="{{amount}}" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">备注</text>
+          <input class="input-box" type="text" name="note" placeholder="请输入备注" value="{{note}}" />
+        </view>
+      </view>
+      <button form-type="submit" type="primary" class="save-btn">{{isEdit ? '更新' : '保存'}}</button>
+    </form>
+  </view>
+</view> 

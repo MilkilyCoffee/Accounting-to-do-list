@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="search-bar-bg">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索类型/金额/备注" value="{{searchText}}" bindinput="onSearchInput" />
+    <text class="search-icon">🔍</text>
+  </view>
+</view>
+<view class="main-bg">
+  <view class="summary-card">
+    <view class="summary-row">
+      <view class="summary-item">
+        <text class="summary-label">总收入</text>
+        <text class="summary-amount income">{{totalIncome}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="summary-label">总支出</text>
+        <text class="summary-amount expense">{{totalExpense}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="summary-label">结余</text>
+        <text class="summary-amount balance">{{balance}}</text>
+      </view>
+    </view>
+    <view class="date-range-row">
+      <picker mode="date" value="{{startDate}}" bindchange="startDateChange">
+        <view class="date-range-picker">{{startDate || '开始日期'}}</view>
+      </picker>
+      <text class="date-range-sep">至</text>
+      <picker mode="date" value="{{endDate}}" bindchange="endDateChange">
+        <view class="date-range-picker">{{endDate || '截至日期'}}</view>
+      </picker>
+    </view>
+    <view class="sort-row">
+      <view class="sort-float" bindtap="showSortAction">
+        <view class="sort-btn">
+          <text class="sort-icon">⇅</text>
+        </view>
+        <view class="sort-label">排序</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="record-list">
+    <view class="record-card" wx:for="{{filteredRecords}}" wx:key="id">
+      <view class="record-row">
+        <view class="record-type {{item.type}}">
+          {{item.type === 'income' ? '收入' : '支出'}}
+        </view>
+        <view class="record-amount {{item.type}}">
+          {{item.type === 'income' ? '+' : '-'}}{{item.amount}}
+        </view>
+      </view>
+      <view class="record-note">{{item.note || '无备注'}}</view>
+      <view class="record-bottom">
+        <view class="record-date">{{item.date}}</view>
+        <view class="record-actions">
+          <view class="action-btn edit" bindtap="editRecord" data-id="{{item.id}}">编辑</view>
+          <view class="action-btn delete" bindtap="deleteRecord" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{filteredRecords.length === 0}}">
+    暂无记录
+  </view>
+
+  <view class="add-float">
+    <view class="add-btn" bindtap="navigateToAdd">
+      <text class="iconfont">+</text>
+    </view>
+    <view class="add-label">添加账单</view>
+  </view>
+
+  <view class="sort-float" bindtap="showSortAction">
+    <view class="sort-btn">
+      <text class="sort-icon">⇅</text>
+    </view>
+    <view class="sort-label">排序</view>
+  </view>
+
+  <button class="share-btn" open-type="share">分享给好友</button>
+</view>
+

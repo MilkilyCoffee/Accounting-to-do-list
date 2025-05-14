@@ -1,0 +1,48 @@
+<view class="search-bar-bg">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索待办内容" value="{{searchText}}" bindinput="onSearchInput" />
+    <text class="search-icon">🔍</text>
+  </view>
+</view>
+<view class="todo-bg">
+  <view class="todo-card">
+    <form bindsubmit="addTodo">
+      <view class="todo-input-row">
+        <input class="todo-input" name="todoText" placeholder="请输入待办事项" value="{{inputValue}}" />
+      </view>
+      <view class="todo-input-row">
+        <picker mode="date" value="{{inputDate}}" bindchange="dateChange">
+          <view class="todo-date-picker">{{inputDate || '选择日期'}}</view>
+        </picker>
+        <picker mode="time" value="{{inputStartTime}}" bindchange="startTimeChange">
+          <view class="todo-time-picker">{{inputStartTime || '开始时间'}}</view>
+        </picker>
+        <picker mode="time" value="{{inputEndTime}}" bindchange="endTimeChange">
+          <view class="todo-time-picker">{{inputEndTime || '结束时间'}}</view>
+        </picker>
+        <input class="todo-days-input" name="todoDays" type="number" placeholder="持续天数" value="{{inputDays}}" />
+      </view>
+      <button class="todo-add-btn" form-type="submit">添加</button>
+    </form>
+    <view class="todo-list">
+      <view class="todo-item" wx:for="{{filteredTodos}}" wx:key="id">
+        <view class="todo-left" bindtap="toggleDone" data-id="{{item.id}}">
+          <view class="todo-checkbox {{item.done ? 'checked' : ''}}">{{item.done ? '✔' : ''}}</view>
+          <view class="todo-info">
+            <text class="todo-text {{item.done ? 'done' : ''}}">{{item.text}}</text>
+            <view class="todo-meta">
+              <text class="todo-date">{{item.date}}</text>
+              <text class="todo-time" wx:if="item.startTime && item.endTime">{{item.startTime}} - {{item.endTime}}</text>
+              <text class="todo-days" wx:if="item.days">持续{{item.days}}天</text>
+            </view>
+          </view>
+        </view>
+        <view class="todo-actions">
+          <view class="todo-edit" catchtap="editTodo" data-id="{{item.id}}">编辑</view>
+          <view class="todo-delete" catchtap="deleteTodo" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+    <view class="todo-empty" wx:if="{{filteredTodos.length === 0}}">暂无待办事项</view>
+  </view>
+</view> 
